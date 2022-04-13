@@ -1,11 +1,13 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import image from "../image/menu.png";
-import squareMenu from "../image/squareMenu.png";
-import search from "../image/search.png";
+import image from "../assets/image/menu.png";
+import squareMenu from "../assets/image/squareMenu.png";
+import search from "../assets/image/search.png";
 import s from "./CreateForms.module.css";
+import { useNavigate } from "react-router-dom";
 
 const CreateForms = () => {
+  const navigate = useNavigate();
   return (
     <>
       <GlobalStyle />
@@ -30,6 +32,7 @@ const CreateForms = () => {
           src="https://ssl.gstatic.com/docs/templates/thumbnails/forms-blank-googlecolors.png"
           alt=""
           className={s.plus}
+          onClick={() => navigate("new-forms")}
         />
       </div>
     </>

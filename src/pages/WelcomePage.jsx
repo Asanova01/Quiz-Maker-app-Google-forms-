@@ -1,15 +1,14 @@
 import React from "react";
 import s from "./Home.module.css";
-import image from "../assets/image/menu.png";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const WelcomePage = () => {
   const navigate = useNavigate();
   return (
     <>
       <header className={s.header}>
         <h2>Google</h2>
-        <img src={image} alt="" />
+        <img src='' alt="" />
       </header>
       <p className={s.headline}>Создавайте информативные документы</p>
       <div className={s.block}>
@@ -32,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default WelcomePage;

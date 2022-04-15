@@ -1,12 +1,13 @@
 import React from "react";
-// import AddQuizForm from "./AddQuizForm";
 import { createGlobalStyle } from "styled-components";
+import Question from "./Question";
 import QuizHeader from "./QuizHeader";
 const NewQuiz = () => {
   return (
     <>
       <GlobalStyle />
-      <QuizHeader/>
+      <QuizHeader />
+      <Question/>
     </>
   );
 };

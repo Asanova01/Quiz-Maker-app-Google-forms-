@@ -8,13 +8,12 @@ import styled from "styled-components";
 import Tamplete from "../components/Tamplete";
 
 const CreateQuiz = () => {
-
   return (
     <>
       <GlobalStyle />
       <Header>
         <div className="header-info">
-          <AiOutlineMenu  color='#5f6368' />
+          <AiOutlineMenu color="#5f6368" />
           <img
             src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png"
             alt=""
@@ -22,15 +21,15 @@ const CreateQuiz = () => {
           <p>Формы</p>
         </div>
         <div className="header-search">
-          <AiOutlineSearch  color='#5f6368'/>
-          <input type="text" placeholder="Поиск"/>
+          <AiOutlineSearch color="#5f6368" />
+          <input type="text" placeholder="Поиск" />
         </div>
         <div className="header-right">
-          <MdOutlineApps fontSize='22px'  color='#5f6368'/>
-          <BiUserCircle fontSize='28px' color='#5f6368'/>
+          <MdOutlineApps fontSize="22px" color="#5f6368" />
+          <BiUserCircle fontSize="28px" color="#5f6368" />
         </div>
       </Header>
-      <Tamplete/>
+      <Tamplete />
     </>
   );
 };
@@ -39,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: #f4f4f9;
   }
-`;
+`
 const Header = styled.div`
   position: sticky;
   margin: 0;
@@ -53,8 +52,8 @@ const Header = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 140px;
-    p{
-      color:#5f6368;
+    p {
+      color: #5f6368;
     }
   }
   .header-right {
@@ -73,13 +72,13 @@ const Header = styled.div`
     border-radius: 5px;
     padding: 15px;
   }
-  .header-search > input{
-     border: none;
-     height: 40px;
-     background: transparent;
-     outline: none;
-     width: 100%;
-     padding: 10px;
+  .header-search > input {
+    border: none;
+    height: 40px;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    padding: 10px;
   }
 `;
 

@@ -7,37 +7,40 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdOutlinePalette } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiCornerUpLeft, FiCornerUpRight } from "react-icons/fi";
+import Tabs from "./Tabs";
 
 const QuizHeader = () => {
   return (
     <Header>
-      <div className="form-header-left">
-        <img
-          src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png"
-          alt=""
-        />
-        <input type="text" placeholder="Новая форма" />
-        <BiFolder fontSize="20px" color="#5f6368" />
-        <AiOutlineStar fontSize="20px" color="#5f6368" />
-        <span>Все изменения сохранены на Диске</span>
+      <div className="form-header">
+        <div className="form-header-left">
+          <img
+            src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png"
+            alt=""
+          />
+          <input type="text" placeholder="Новая форма" />
+          <BiFolder fontSize="20px" color="#5f6368" />
+          <AiOutlineStar fontSize="20px" color="#5f6368" />
+          <span>Все изменения сохранены на Диске</span>
+        </div>
+        <div className="form-header-right">
+          <MdOutlinePalette fontSize="20px" color="#5f6368" />
+          <BsEye fontSize="20px" color="#5f6368" />
+          <FiCornerUpLeft fontSize="20px" color="#5f6368" />
+          <FiCornerUpRight fontSize="20px" color="#5f6368" />
+          <button>Отправить</button>
+          <BsThreeDotsVertical fontSize="20px" color="#5f6368" />
+          <AiOutlineUser fontSize="20px" color="#5f6368" />
+        </div>
       </div>
-      <div className="form-header-right">
-        <MdOutlinePalette fontSize="20px" color="#5f6368" />
-        <BsEye fontSize="20px" color="#5f6368" />
-        <FiCornerUpLeft fontSize="20px" color="#5f6368" />
-        <FiCornerUpRight fontSize="20px" color="#5f6368" />
-        <button>Отправить</button>
-        <BsThreeDotsVertical fontSize="20px" color="#5f6368" />
-        <AiOutlineUser fontSize="20px" color="#5f6368" />
-      </div>
+      <Tabs />
     </Header>
   );
 };
 
 const Header = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   background-color: white;
   padding: 0px 10px;
   button {
@@ -47,6 +50,10 @@ const Header = styled.div`
     border-radius: 5px;
     font-size: 14px;
     margin-bottom: 20px;
+  }
+  .form-header {
+    display: flex;
+    justify-content: space-between;
   }
   .form-header-left {
     display: flex;

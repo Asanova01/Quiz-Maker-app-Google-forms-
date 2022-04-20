@@ -1,23 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-import Answer from "./components/Answer";
-import NewQuiz from "./components/NewQuiz";
-import Question from "./components/Question";
-import CreateQuiz from "./pages/CreateQuiz";
-import WelcomePage from "./pages/WelcomePage";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import NewQuiz from './components/NewQuiz'
+// import Question from './components/QuizNewForm'
+import CreateQuiz from './pages/CreateQuiz'
+import WelcomePage from './pages/WelcomePage'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="forms" element={<CreateQuiz />} />
-        <Route path="forms/new-forms" element={<NewQuiz />}>
-          <Route path="question" element={<Question />} />
-          <Route path="answer" element={<Answer />} />
-        </Route>
-      </Routes>
-    </>
-  );
+    <Routes>
+      <Route path='/' element={<WelcomePage />} />
+      <Route path='forms' element={<CreateQuiz />} />
+      <Route path='forms/new-forms' element={<NewQuiz />}>
+        {/* <Route path='question' element={<Question />} /> */}
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App

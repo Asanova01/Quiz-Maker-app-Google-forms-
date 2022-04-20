@@ -1,65 +1,64 @@
-import React from "react";
-import styled from "styled-components";
-import { BiFolder } from "react-icons/bi";
-import { AiOutlineStar } from "react-icons/ai";
-import { BsEye } from "react-icons/bs";
-import { AiOutlineUser } from "react-icons/ai";
-import { MdOutlinePalette } from "react-icons/md";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { FiCornerUpLeft, FiCornerUpRight } from "react-icons/fi";
-import Tabs from "./Tabs";
+import React from 'react'
+import styled from 'styled-components'
+import { BiFolder } from 'react-icons/bi'
+import { MdOutlinePalette } from 'react-icons/md'
+import { BsEye, BsThreeDotsVertical } from 'react-icons/bs'
+import { AiOutlineStar, AiOutlineUser } from 'react-icons/ai'
+import { FiCornerUpLeft, FiCornerUpRight } from 'react-icons/fi'
+import Tabs from './QuizTabs'
 
 const QuizHeader = () => {
   return (
     <Header>
-      <div className="form-header">
-        <div className="form-header-left">
+      <Block>
+        <div className='form-header-left'>
           <img
-            src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png"
-            alt=""
+            src='https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png'
+            alt=''
           />
-          <input type="text" placeholder="Новая форма" />
-          <BiFolder fontSize="20px" color="#5f6368" />
-          <AiOutlineStar fontSize="20px" color="#5f6368" />
+          <input type='text' placeholder='Новая форма' />
+          <BiFolder fontSize='20px' color='#5f6368' />
+          <AiOutlineStar fontSize='20px' color='#5f6368' />
           <span>Все изменения сохранены на Диске</span>
         </div>
-        <div className="form-header-right">
-          <MdOutlinePalette fontSize="20px" color="#5f6368" />
-          <BsEye fontSize="20px" color="#5f6368" />
-          <FiCornerUpLeft fontSize="20px" color="#5f6368" />
-          <FiCornerUpRight fontSize="20px" color="#5f6368" />
-          <button>Отправить</button>
-          <BsThreeDotsVertical fontSize="20px" color="#5f6368" />
-          <AiOutlineUser fontSize="20px" color="#5f6368" />
+        <div className='form-header-right'>
+          <MdOutlinePalette fontSize='20px' color='#5f6368' />
+          <BsEye fontSize='20px' color='#5f6368' />
+          <FiCornerUpLeft fontSize='20px' color='#5f6368' />
+          <FiCornerUpRight fontSize='20px' color='#5f6368' />
+          <button type='button'>Отправить</button>
+          <BsThreeDotsVertical fontSize='20px' color='#5f6368' />
+          <AiOutlineUser fontSize='20px' color='#5f6368' />
         </div>
-      </div>
+      </Block>
       <Tabs />
     </Header>
-  );
-};
+  )
+}
 
 const Header = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 0px 10px;
+  padding: 10px 15px;
   button {
     background-color: #673ab7;
+    outline: none;
+    border: none;
     width: 110px;
     height: 34px;
+    color: white;
     border-radius: 5px;
     font-size: 14px;
-    margin-bottom: 20px;
   }
-  .form-header {
-    display: flex;
-    justify-content: space-between;
+  & img {
+    width: 40px;
   }
   .form-header-left {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 380px;
+    width: 390px;
 
     input {
       border: none;
@@ -70,18 +69,22 @@ const Header = styled.div`
       width: 110px;
     }
     input:focus {
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid #673ab7;
     }
   }
   span {
-    font-size: 10px;
+    font-size: 11px;
     color: #444446;
   }
   .form-header-right {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 350px;
+    width: 370px;
   }
-`;
-export default QuizHeader;
+`
+const Block = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+export default QuizHeader

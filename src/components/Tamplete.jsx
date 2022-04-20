@@ -1,22 +1,26 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Tamplete = () => {
-      const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <Section>
-      <div>
+      <div
+        role='presentation'
+        onClick={() => {
+          return navigate('new-forms')
+        }}
+      >
         <p>Создать форму</p>
         <img
-          src="https://ssl.gstatic.com/docs/templates/thumbnails/forms-blank-googlecolors.png"
-          alt=""
-          onClick={()=>navigate('new-forms')}
+          src='https://ssl.gstatic.com/docs/templates/thumbnails/forms-blank-googlecolors.png'
+          alt=''
         />
       </div>
     </Section>
-  );
-};
+  )
+}
 
 const Section = styled.div`
   display: flex;
@@ -24,8 +28,9 @@ const Section = styled.div`
   margin-top: 10px;
   p {
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
     color: #5f6368;
+    padding: 10px;
   }
   img {
     width: 300px;
@@ -36,6 +41,6 @@ const Section = styled.div`
   img:hover {
     border: 2px solid #6e2594;
   }
-`;
+`
 
-export default Tamplete;
+export default Tamplete

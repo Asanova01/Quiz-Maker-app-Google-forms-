@@ -1,28 +1,28 @@
-import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react'
+// import { NavLink, Outlet } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Tabs = () => {
   return (
     <Container>
       {/* <Outlet /> */}
-      <div className="block-tabs">
+      <div className='block-tabs'>
         {/* <NavLink
           to="question"
           className={({ isActive }) => (isActive ? "" : "active-link")}
         > */}
-          <p>Вопросы</p>
+        <p>Вопросы</p>
         {/* </NavLink>
         <NavLink
           to="answer"
           className={({ isActive }) => (isActive ? "" : "active-link")}
         > */}
-          <p>Ответы</p>
+        <p>Ответы</p>
         {/* </NavLink> */}
       </div>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
@@ -40,5 +40,5 @@ const Container = styled.div`
   p {
     font-size: 13px;
   }
-`;
-export default Tabs;
+`
+export default Tabs

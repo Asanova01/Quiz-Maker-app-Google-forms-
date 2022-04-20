@@ -15,7 +15,7 @@
   "rules": {
     "semi": 0,
     "comma-dangle": 0,
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "no-unused-vars": "warn",
     "self-closing-comp": "off",
     "requireReturnForObjectLiteral": true,

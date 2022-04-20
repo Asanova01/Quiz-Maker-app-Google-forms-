@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai'
 import { MdOutlineApps } from 'react-icons/md'
 import { BiUserCircle } from 'react-icons/bi'
-import Tamplete from '../components/Tamplete'
+import Tamplete from '../components/CreateQuiz/Tamplete'
 
 const CreateQuiz = () => {
   return (

@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import addQuizSlice from './add-quiz-slice'
+import quizSlice from './quizSlice'
 
 const store = configureStore({
   reducer: {
-    quizzes: addQuizSlice,
+    quizzes: quizSlice, 
   },
 })
 export default store

@@ -37,6 +37,8 @@ const QuizHeader = () => {
 }
 
 const Header = styled.div`
+  width: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: white;

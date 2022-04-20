@@ -1,99 +1,54 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
 import { BiImageAlt } from 'react-icons/bi'
 import { BsXLg, BsThreeDotsVertical } from 'react-icons/bs'
 import { MdOutlineContentCopy } from 'react-icons/md'
 import { RiDeleteBin6Line, RiCheckboxCircleFill } from 'react-icons/ri'
 import QuizSide from './QuizSide'
-import { removeQuizzes } from '../store/add-quiz-slice'
-
-// import { MdOutlineRadioButtonChecked } from 'react-icons/md'
 
 const QuizNewForm = () => {
-  const quizzes = useSelector((state) => state.quizzes)
-  const [open, setOpen] = useState(false)
-  const dispatch = useDispatch()
-  const removeHandler = () => {
-    dispatch(removeQuizzes({ id: Math.random().toString() }))
-    console.log(removeQuizzes)
-  }
-
   const questionaUI = () => {
     return (
-      <>
-        {quizzes.map((quiz) => (
-          <Accordion>
-            {!open ? (
-              <div key={quiz.id} id={quiz.id}>
-                <div className='saved-questions'>
-                  <h1 onClick={() => setOpen(true)}>{quiz.questionText}</h1>
-                  <div>
-                    <input type='checkbox' disabled />
-                    <p>Вариант 1</p>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <>
-                <div className='add-question-top'>
-                  <input
-                    type='text'
-                    className='question-desc'
-                    // value={ques.questionText}
-                    placeholder='Вопрос'
-                  />
-                  <BiImageAlt fontSize='22px' color='#5f6368' />
-                  <select>
-                    <option value='text'>Текст (строка)</option>
-                    <option value='checkbox'>Один из списка</option>
-                    <option value='radio'>Несколько из списка</option>
-                  </select>
-                </div>
-                <div className='add-question-body'>
-                  <input type='text' className='checkbox-input' disabled />
-                  <input
-                    type='text'
-                    className='text-input'
-                    placeholder='option'
-                  />
-                  <BiImageAlt fontSize='22px' color='#5f6368' />
-                  <BsXLg fontSize='16px' color='#5f6368' />
-                </div>
-                <div className='add-question-body-bottom'>
-                  <input type='text' className='checkbox-input' disabled />
-                  <input
-                    type='text'
-                    className='text-add-input'
-                    placeholder='Добавить вариант'
-                  />
-                  <p>или</p>
-                  <button type='button'>Добавить вариант Другое</button>
-                </div>
-                <hr className='line' />
-                <Footer>
-                  <div className='add-question-bottom-left'>
-                    <MdOutlineContentCopy fontSize='20px' color='#5f6368' />
-                    <RiDeleteBin6Line
-                      fontSize='20px'
-                      color='#5f6368'
-                      id={quiz.id}
-                    />
-                    <button type='button' onClick={removeHandler} id={quiz.id}>
-                      Click me
-                    </button>
-                    <p>Обязательный вопрос</p>
-                    <RiCheckboxCircleFill fontSize='20px' color='#5f6368' />
-                    <BsThreeDotsVertical fontSize='20px' color='#5f6368' />
-                  </div>
-                </Footer>
-              </>
-            )}
-
-            <QuizSide />
-          </Accordion>
-        ))}
-      </>
+      <Accordion>
+        <div className='add-question-top'>
+          <input type='text' className='question-desc' placeholder='Вопрос' />
+          <BiImageAlt fontSize='22px' color='#5f6368' />
+          <select>
+            <option value='text'>Текст (строка)</option>
+            <option value='checkbox'>Один из списка</option>
+            <option value='radio'>Несколько из списка</option>
+          </select>
+        </div>
+        <div className='add-question-body'>
+          <input type='text' className='checkbox-input' disabled />
+          <input type='text' className='text-input' placeholder='option' />
+          <BiImageAlt fontSize='22px' color='#5f6368' />
+          <BsXLg fontSize='16px' color='#5f6368' />
+        </div>
+        <div className='add-question-body-bottom'>
+          <input type='text' className='checkbox-input' disabled />
+          <input
+            type='text'
+            className='text-add-input'
+            placeholder='Добавить вариант'
+          />
+          <p>или</p>
+          <button type='button'>Добавить вариант Другое</button>
+        </div>
+        <hr className='line' />
+        <Footer>
+          <div className='add-question-bottom-left'>
+            <MdOutlineContentCopy fontSize='20px' color='#5f6368' />
+            <div>
+              <RiDeleteBin6Line fontSize='20px' color='#5f6368' />
+            </div>
+            <p>Обязательный вопрос</p>
+            <RiCheckboxCircleFill fontSize='20px' color='#5f6368' />
+            <BsThreeDotsVertical fontSize='20px' color='#5f6368' />
+          </div>
+        </Footer>
+        <QuizSide />
+      </Accordion>
     )
   }
   return (
@@ -120,8 +75,9 @@ const QuizNewForm = () => {
 
 const Section = styled.div`
   height: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
   .new-quiz-top {
+    margin-top: 80px;
     background-color: white;
     border-top: 8px solid rgb(107, 58, 183);
     border-radius: 8px;

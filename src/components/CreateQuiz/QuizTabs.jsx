@@ -8,15 +8,15 @@ const Tabs = () => {
       {/* <Outlet /> */}
       <div className='block-tabs'>
         {/* <NavLink
-          to="question"
-          className={({ isActive }) => (isActive ? "" : "active-link")}
-        > */}
+            to="question"
+            className={({ isActive }) => (isActive ? "" : "active-link")}
+          > */}
         <p>Вопросы</p>
         {/* </NavLink>
-        <NavLink
-          to="answer"
-          className={({ isActive }) => (isActive ? "" : "active-link")}
-        > */}
+          <NavLink
+            to="answer"
+            className={({ isActive }) => (isActive ? "" : "active-link")}
+          > */}
         <p>Ответы</p>
         {/* </NavLink> */}
       </div>

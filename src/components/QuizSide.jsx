@@ -1,29 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsPlusCircle } from 'react-icons/bs'
-// import { useDispatch } from 'react-redux'
-// import { addQuizzes } from '../store/add-quiz-slice'
+import { useDispatch } from 'react-redux'
+import { addQuizzes } from '../store/quizSlice'
 
 const QuizSide = () => {
-  // const dispatch = useDispatch()
-  // const addQuizListHandler = () => {
-  //   dispatch(addQuizzes({ id: Math.random().toString() }))
-  // }
-
+  const dispatch = useDispatch()
+  const addQuizzesHandler = () => {
+    dispatch(
+      addQuizzes({
+        id: new Date().toLocaleString(),
+        questionText: 'Вопрос',
+        questionType: 'radio',
+        options: [{ id: Date.now(), option: 'Вариант' }],
+        answer: false,
+        open: true,
+        required: false,
+      })
+    )
+  }
   return (
     <Container>
       <Block>
         <BsPlusCircle
           fontSize='25px'
           color='#606264'
-          // onClick={addQuizListHandler}
+          onClick={addQuizzesHandler}
           title='Добавить вопрос'
         />
       </Block>
     </Container>
   )
 }
-
 const Container = styled.div`
   position: fixed;
   top: 170px;

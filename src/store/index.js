@@ -3,7 +3,7 @@ import quizSlice from './quizSlice'
 
 const store = configureStore({
   reducer: {
-    quizzes: quizSlice, 
+    quizzes: quizSlice,
   },
 })
 export default store

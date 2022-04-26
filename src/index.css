@@ -19,3 +19,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.active-link {
+  color: #673ab7;
+  cursor: pointer;
+  text-decoration: none;
+  width: 80px;
+  padding: 5px;
+  border-bottom: 3px solid #673ab7;
+}
+.inactive {
+  text-decoration: none;
+  color: rgb(63, 61, 61);
+  width: 80px;
+  padding: 5px;
+  border-bottom: 3px solid white;
+}

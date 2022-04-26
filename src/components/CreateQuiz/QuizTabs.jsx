@@ -1,5 +1,5 @@
 import React from 'react'
-// import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Tabs = () => {
@@ -7,18 +7,18 @@ const Tabs = () => {
     <Container>
       {/* <Outlet /> */}
       <div className='block-tabs'>
-        {/* <NavLink
-            to="question"
-            className={({ isActive }) => (isActive ? "" : "active-link")}
-          > */}
-        <p>Вопросы</p>
-        {/* </NavLink>
-          <NavLink
-            to="answer"
-            className={({ isActive }) => (isActive ? "" : "active-link")}
-          > */}
-        <p>Ответы</p>
-        {/* </NavLink> */}
+        <NavLink
+          to='questions'
+          className={({ isActive }) => (isActive ? 'active-link' : '')}
+        >
+          Вопросы
+        </NavLink>
+        <NavLink
+          to='tests'
+          className={({ isActive }) => (isActive ? '' : 'active-link')}
+        >
+          Тесты
+        </NavLink>
       </div>
     </Container>
   )

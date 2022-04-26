@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { addQuizValue } from '../store/quizSlice'
+import { addQuizDescription, addQuizTitle } from '../store/quizSlice'
 import QuizList from './QuizList'
 import QuizSide from './QuizSide'
 
@@ -9,11 +9,12 @@ const NewQuizForm = () => {
   const dispatch = useDispatch()
   const quizzes = useSelector((state) => state.quizzes)
   const titleChangeHandler = (e) => {
-    dispatch(addQuizValue({ title: e.target.value }))
+    dispatch(addQuizTitle({ title: e.target.value }))
   }
   const descriptionChangeHandler = (e) => {
-    dispatch(addQuizValue({ description: e.target.value }))
+    dispatch(addQuizDescription({ description: e.target.value }))
   }
+
   return (
     <Container>
       <br />
@@ -30,8 +31,8 @@ const NewQuizForm = () => {
             type='text'
             placeholder='Описание'
             className='new-quiz-desc'
-            value={quizzes.description}
             onChange={descriptionChangeHandler}
+            value={quizzes.description}
           />
         </Inner>
         <QuizList />

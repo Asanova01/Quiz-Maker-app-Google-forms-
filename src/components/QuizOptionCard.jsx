@@ -1,30 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { BsXLg } from 'react-icons/bs'
-import { removeQuestions } from '../store/quizSlice'
+import { addOptionText, removeQuestions } from '../store/quizSlice'
 
-const QuizOptionCard = ({ option, id, number, parentId, questionType }) => {
+const QuizOptionCard = ({ option, id, parentId }) => {
+  const [optionValue, setOptionState] = useState(option)
   const dispatch = useDispatch()
   const removeQuiestionHandler = () => {
     dispatch(removeQuestions({ id, parentId }))
   }
+  const optionChangeHandler = (e) => {
+    setOptionState(e.target.value)
+    dispatch(addOptionText({ option: optionValue }))
+  }
   return (
-    <SectionBody key={id}>
-      <input type={questionType} className='radio-style' disabled />
+    <SectionCard key={id}>
+      <input type='radio' className='radio-style' disabled />
       <input
         type='text'
         className='option-style'
-        defaultValue={`${option} ${number + 1}`}
+        value={optionValue}
+        onChange={optionChangeHandler}
       />
       <BsXLg fontSize='16px' color='#5f6368' onClick={removeQuiestionHandler} />
-    </SectionBody>
+    </SectionCard>
   )
 }
 
-const SectionBody = styled.div`
+const SectionCard = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 5px;
   .radio-style {
@@ -36,6 +42,7 @@ const SectionBody = styled.div`
     outline: none;
     width: 580px;
     padding: 8px;
+    margin: 0px 15px;
     border-bottom: 2px solid #f4f4f9;
   }
 `

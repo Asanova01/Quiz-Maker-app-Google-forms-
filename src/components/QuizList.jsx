@@ -4,14 +4,15 @@ import QuizItem from './QuizItem'
 
 const QuizList = () => {
   const quizzes = useSelector((state) => state.quizzes.questions)
+  const quizs = useSelector((state) => state.quizzes)
   useEffect(() => {
-    localStorage.setItem('trello', JSON.stringify(quizzes))
-  }, [quizzes])
+    localStorage.setItem('quizzes', JSON.stringify(quizs))
+  }, [quizs])
+
   return quizzes.map((quiz) => (
     <QuizItem
       key={quiz.id}
       questionText={quiz.questionText}
-      questionType={quiz.questionType}
       id={quiz.id}
       answer={quiz.answer}
       open={quiz.open}

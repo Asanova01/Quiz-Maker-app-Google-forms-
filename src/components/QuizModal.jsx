@@ -1,26 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  MdOutlineRadioButtonChecked,
-  MdDriveFileRenameOutline,
-} from 'react-icons/md'
-import { BiTimeFive } from 'react-icons/bi'
-import { AiOutlineMail } from 'react-icons/ai'
-import { RiCalendarEventLine } from 'react-icons/ri'
+import { MdOutlineRadioButtonChecked } from 'react-icons/md'
 import { BsJustifyLeft, BsCheckSquareFill } from 'react-icons/bs'
 
 const QuizModal = () => {
   return (
     <Container>
       <Block>
-        <Column>
-          <MdDriveFileRenameOutline fontSize='18px' color='#5f6368' />
-          <p>Имя</p>
-        </Column>
-        <Column>
-          <AiOutlineMail fontSize='18px' color='#5f6368' />
-          <p>Почта</p>
-        </Column>
         <Column>
           <BsJustifyLeft fontSize='18px' color='#5f6368' />
           <p>Текст (строка)</p>
@@ -32,14 +18,6 @@ const QuizModal = () => {
         <Column>
           <BsCheckSquareFill fontSize='18px' color='#5f6368' />
           <p>Несколько из списка</p>
-        </Column>
-        <Column>
-          <RiCalendarEventLine fontSize='18px' color='#5f6368' />
-          <p>Дата</p>
-        </Column>
-        <Column>
-          <BiTimeFive fontSize='18px' color='#5f6368' />
-          <p>Время</p>
         </Column>
       </Block>
     </Container>

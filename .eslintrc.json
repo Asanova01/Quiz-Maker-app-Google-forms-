@@ -21,6 +21,8 @@
     "arrow-body-style": "off",
     "comma-dangle": "off",
     "react/prop-types": "off",
+    "no-confusing-arrow": "off",
+    "implicit-arrow-linebreak": "off",
     "object-curly-newline": "off",
     "operator-linebreak": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

@@ -1,49 +1,44 @@
 import React, { useState } from 'react'
-import { BsThreeDotsVertical } from 'react-icons/bs'
 import { MdOutlineContentCopy } from 'react-icons/md'
-import { RiDeleteBin6Line, RiCheckboxCircleFill } from 'react-icons/ri'
+import { RiDeleteBin6Line } from 'react-icons/ri'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { addQuestions, copyQuizzes, removeQuizzes } from '../store/quizSlice'
+import {
+  addQuestions,
+  addQuestionText,
+  copyQuizzes,
+  removeQuizzes,
+} from '../store/quizSlice'
+// import QuizModal from './QuizModal'
 import QuizOptionCard from './QuizOptionCard'
+// import selectData from '../data/selectData'
 
-const QuizItem = ({ questionText, options, quiz, id, questionType }) => {
+const QuizItem = ({ questionText, options, id, quiz }) => {
   const dispatch = useDispatch()
+  const [questionTextValue, setQuestionTextValue] = useState(questionText)
   const quesionChangeHandler = () => {
-    dispatch(addQuestions({ option: 'Вариант', id }))
+    dispatch(addQuestions({ option: '', id }))
   }
   const removeQuizzesHandler = () => {
     dispatch(removeQuizzes({ id }))
   }
-  const copyChangeHandler = () => {
-    const copyQuiz = {
-      ...quiz,
-      id: new Date().toLocaleString(),
-    }
-    dispatch(copyQuizzes(copyQuiz))
+  const copyChangeHandler = (quesId, quesCopy) => {
+    dispatch(copyQuizzes({ quesId, quesCopy }))
   }
-  const [state, setState] = useState('')
+  const questionTextChangeHandler = (e) => {
+    setQuestionTextValue(e.target.value)
+    dispatch(addQuestionText({ questionText: questionTextValue }))
+  }
   return (
     <Container>
       <SectionTop>
-        <input type='text' placeholder='Вопрос' defaultValue={questionText} />
-        <select
-          onChange={(e) => {
-            const selectedQuiz = e.target.value
-            setState(selectedQuiz)
-          }}
-        >
-          <option id='text' type='text'>
-            Текст (строка)
-          </option>
-          <option id='radio' type='radio'>
-            Один из списка
-          </option>
-          <option id='checkbox' type='checkbox'>
-            Несколько из списка
-          </option>
-        </select>
-        {state}
+        <input
+          type='text'
+          placeholder='Вопрос'
+          value={questionTextValue}
+          onChange={questionTextChangeHandler}
+        />
+        {/* <QuizModal /> */}
       </SectionTop>
       {options.map((op, i) => (
         <QuizOptionCard
@@ -51,40 +46,35 @@ const QuizItem = ({ questionText, options, quiz, id, questionType }) => {
           option={op.option}
           number={i}
           id={op.id}
+          quiz={quiz}
           parentId={id}
-          questionType={questionType}
         />
       ))}
       <SectionBottom>
         <input type='radio' className='radio-style' disabled />
         <button
           type='button'
-          className='add-option-style'
+          className='add-option'
           onClick={quesionChangeHandler}
         >
           Добавить вариант
         </button>
-        <p>или</p>
-        <button type='button'>Добавить вариант Другое</button>
       </SectionBottom>
       <hr className='line' />
       <Footer>
         <div className='add-question-bottom-left'>
           <MdOutlineContentCopy
-            fontSize='20px'
+            fontSize='28px'
             color='#5f6368'
-            onClick={copyChangeHandler}
+            title='Создать копию'
+            onClick={() => copyChangeHandler(id, quiz)}
           />
-          <div>
-            <RiDeleteBin6Line
-              fontSize='20px'
-              color='#5f6368'
-              onClick={removeQuizzesHandler}
-            />
-          </div>
-          <p>Обязательный вопрос</p>
-          <RiCheckboxCircleFill fontSize='20px' color='#5f6368' />
-          <BsThreeDotsVertical fontSize='20px' color='#5f6368' />
+          <RiDeleteBin6Line
+            fontSize='28px'
+            color='#5f6368'
+            title='Удалить'
+            onClick={removeQuizzesHandler}
+          />
         </div>
       </Footer>
     </Container>
@@ -121,7 +111,7 @@ const Footer = styled.div`
   .add-question-bottom-left {
     display: flex;
     justify-content: space-around;
-    width: 350px;
+    width: 200px;
   }
 `
 const SectionTop = styled.div`
@@ -133,14 +123,14 @@ const SectionTop = styled.div`
     width: 300px;
     border: none;
     outline: none;
-    border-bottom: 2px solid #bdbdbd;
+    border-bottom: 2px solid #ededee;
     color: black;
     height: 45px;
     padding: 10px;
     background-color: #f7f7fc;
     border-radius: 4px 4px 0px 0px;
   }
-  & input:hover {
+  & input:focus {
     border-bottom: 2px solid rgb(107, 58, 183);
     transition: 0.9s;
   }
@@ -153,30 +143,29 @@ const SectionBottom = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 5px;
-  & p {
-    font-size: 13px;
-    margin-left: 5px;
-  }
-  & button {
+  .add-another-option {
     outline: none;
     border: none;
     background-color: white;
-    color: #1a73e8;
-    height: 40px;
-    width: 180px;
-    border-radius: 5px;
+    color: rgb(26, 115, 232);
+    height: 38px;
+    width: 170px;
+    margin-left: 8px;
+    border-bottom: 1px solid white;
   }
-  button:hover {
-    background-color: #f4f4f9;
+  .add-another-option:hover {
+    border-bottom: 1px solid #bdbdbd;
   }
-  .add-option-style {
+  .add-option {
     outline: none;
     border: none;
+    background-color: white;
     border-bottom: 1px solid white;
-    width: 115px;
-    margin-left: 9px;
+    height: 38px;
+    width: 125px;
+    margin-left: 15px;
   }
-  .add-option-style:hover {
+  .add-option:hover {
     border-bottom: 1px solid #bdbdbd;
   }
   .radio-style {
